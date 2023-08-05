@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Data1.Models.Serie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="~/SeriesStyle.css" rel="stylesheet" />
+
+<div class="header text-white">
+    <h1>Your Series</h1>
+</div>
+
+<p>
+    <a asp-action="Create">Add New</a>
+</p>
+<table class="table text-white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Seriename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seriename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SerieId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SerieId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SerieId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Data1.Models.UserApp>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link href="~/UsersStyle.css" rel="stylesheet" />
+
+<div class="header text-white">
+    <h1>Your Users</h1>
+</div>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table text-white">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.UserAppId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.UserAppId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.UserAppId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

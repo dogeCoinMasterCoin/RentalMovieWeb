@@ -1,0 +1,30 @@
+﻿@model Data1.Models.UserWatchList
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>UserWatchList</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WatchList)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WatchList.WatchListId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UserApp)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UserApp.UserAppId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.UserWatchListId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
